@@ -19,16 +19,20 @@
                 </div>
                 <div id="length">
                   <label>Total Distance</label><br>
-                      <input type="number" v-model="distance" id="distance" v-on:change="$emit('calculate')">
+                      <input class="form-control" type="number" v-model="distance" id="distance" v-on:change="$emit('calculate')">
                   <div>
-                      <input type="radio" v-model="lengthUnit" value="Yards" name="unit" v-on:change="$emit('calculate')"><strong>Yards</strong>
-                      <input type="radio" v-model="lengthUnit" value="Meters" name="unit" v-on:change="$emit('calculate')"><strong>Meters</strong>
+                      <label class="radio-inline">
+                        <input type="radio" v-model="lengthUnit" value="Yards" name="unit" v-on:change="$emit('calculate')"><strong>Yards</strong>
+                      </label>
+                      <label class="radio-inline">  
+                        <input type="radio" v-model="lengthUnit" value="Meters" name="unit" v-on:change="$emit('calculate')"><strong>Meters</strong>
+                      </label>
                   </div>
                 </div>
                 <div id="time">
                   <label>Time (hh:mm:ss)</label><br>
                   <div class="form-group">
-                    <div class='input-group date' id='datetimepicker3' v-on:change="$emit('calculate')">
+                    <div class='input-group' id='datetimepicker3' v-on:change="$emit('calculate')">
                         <input type='text' class="form-control" v-model="time" id="timeInput" />
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-time"></span>
@@ -38,7 +42,7 @@
                 </div>
                 <div class="form-group">
                   <div class='input-group'>
-                    <button @click="$emit('calculate')" class="btn btn-success btn-xs">
+                    <button @click="$emit('calculate')" class="btn btn-success btn-sm">
                         <span class="glyphicon glyphicon-cog"></span> Calculate</button>
                   </div>
                 </div>
@@ -47,7 +51,7 @@
 
 
 
-              <div v-show="showResult" class="col-sm-12 container" id="CalcResults" style="padding-top: 20px;">
+              <div v-show="showResult" class="col-sm-12" id="CalcResults" style="padding-top: 20px;">
                 <div class="panel panel-primary" id="sbrresultspannel">
                   <div class="panel-heading">Results 
                     <a id="close-sign" href="#" @click.prevent="$emit('close')">
